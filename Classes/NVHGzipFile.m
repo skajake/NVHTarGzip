@@ -101,7 +101,7 @@ typedef NS_ENUM(NSInteger, NVHGzipFileErrorType)
     CFWriteStreamOpen(writeStream);
     
 	// Convert source path into something a C library can handle
-	const char *sourceCString = [sourcePath cStringUsingEncoding:NSASCIIStringEncoding];
+	const char *sourceCString = [sourcePath cStringUsingEncoding:NSUTF8StringEncoding];
     
 	gzFile *sourceGzFile = gzopen(sourceCString, "rb");
     
@@ -219,7 +219,7 @@ typedef NS_ENUM(NSInteger, NVHGzipFileErrorType)
     }
     
     // Convert destination path into something a C library can handle
-    const char *destinationCString = [destinationPath cStringUsingEncoding:NSASCIIStringEncoding];
+    const char *destinationCString = [destinationPath cStringUsingEncoding:NSUTF8StringEncoding];
     
     gzFile *destinationGzFile = gzopen(destinationCString, "wb");
     
